@@ -1,0 +1,274 @@
+@font-face {
+    font-family: 'PlusJakartaSansBold';
+    src: url('../fonts/static/PlusJakartaSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'PlusJakartaSansMedium';
+    src: url('../fonts/static/PlusJakartaSans-Medium.ttf');
+}
+
+.textPreset1{
+    font-family: 'PlusJakartaSansBold';
+    font-size: 56px;
+    line-height: 125%;
+    letter-spacing: -1px;
+}
+
+.textPreset2{
+    font-family: 'PlusJakartaSansBold';
+    font-size: 24px;
+    line-height: 125%;
+    letter-spacing:-1px;
+}
+
+.textPreset3{
+    font-family: 'PlusJakartaSansBold';
+    font-size: 18px;
+    line-height: 125%;
+    letter-spacing:-1px;
+}
+
+.textPreset4{
+    font-family: 'PlusJakartaSansMedium';
+    font-size: 16px;
+    line-height: 200%;
+    letter-spacing:0px;
+    color: #4e6e7e;
+}
+
+.textPreset5{
+    font-family: 'PlusJakartaSansMedium';
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing:0px;
+}
+
+
+
+input[type='text']{
+    width: 100px;
+    font-size: 20px;
+    padding: 0px 10px;
+}
+
+html,body{
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background-color: #e4f4fd;
+}
+
+.container{
+    display: flex;
+    max-width: 976px;
+    max-height: 606px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: -2px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+
+.formContainer{
+    padding: 40px;
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #133041;
+}
+
+.title > a{
+    color:#4e6e7e;
+}
+
+
+.mortgageAmount{
+    display:flex;
+}
+
+.mortgageAmount > input {
+    flex: 50%;
+}
+
+.termAndRateContainer{
+    display: flex;
+    gap: 24px;
+}
+
+.termAndRateContainer > div{
+    flex: 50%;
+}
+
+
+.mortageTerm ,.interestRate {
+    display: flex;
+}
+
+.mortageTerm > input,.interestRate > input{
+    flex:50%;
+}
+
+.gapProperty{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.gapBetweenInputHorizontally{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.radioButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radioButtons{
+    display: flex;
+    border: 1.5px solid #6b94a8;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.radioButtons > input[type="radio"]{
+    display: flex;
+}
+
+.radioButtons > label{
+    display: flex;
+}
+
+.radioButtonAndLabelGap{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+
+.customRadio{
+    height: 20px;
+    width: 20px;
+    border:2px solid black;
+    border-radius: 50%;
+    display:grid;
+    place-items: center;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.customRadio::before{
+    content: '';
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: #D8DB2F;
+    position: absolute;
+    transform: scale(0);
+    transition: 0.1s;
+
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type="radio"]:checked + .customRadio::before{
+    transform: scale(1);
+} 
+
+
+
+input[type="radio"]:checked + .customRadio{
+    border-color: #D8DB2F;
+} 
+
+
+
+input[type="text"]{
+    height: 48px;
+}
+
+.customizedInputSymbols{
+    background-color: #edf4fd;
+    color: #4e6e7e;
+    display: grid;
+    place-items: center;
+    padding:0px 15px;
+    border:1px solid;
+    border-right: 0px; 
+}
+
+.borderLeft0{
+    border: 1.5px solid #6b94a8;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0px;
+}
+
+.borderRight0{
+    border: 1.5px solid #6b94a8;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0px;
+}
+
+.borderSlate700{
+    border: 1.5px solid #6b94a8;
+    border-radius: 5px 0px 0px 5px;
+}
+
+
+
+.textSlate900{
+    color: #133041;
+}
+
+.repaymentButton{
+    display: flex;
+    padding: 16px 40px;
+    background-color:#D8DB2F;
+    border-radius: 40px;
+    gap: 12px;
+    align-items: center;
+    width: 60%;
+}
+
+/* section 2 start */
+
+.shownRepayment{
+    flex: 50%;
+    padding: 40px;
+    background-color: #133041;
+    border-radius: 0px 20px 20px 40px;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+.emptyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.emptyMessageText{
+    text-align: center;
+    color: #9abed5;
+    line-height: 150%;
+}
