@@ -47,7 +47,7 @@
 
 
 input[type='text']{
-    width: 100px;
+    width: 100%;
     font-size: 20px;
     padding: 0px 10px;
 }
@@ -62,7 +62,6 @@ html,body{
 .container{
     display: flex;
     max-width: 976px;
-    max-height: 606px;
     background-color: white;
     border-radius: 30px;
     box-shadow: -2px 4px 5px rgba(0, 0, 0, 0.5);
@@ -143,7 +142,13 @@ html,body{
     border: 1.5px solid #6b94a8;
     border-radius: 5px;
     padding: 10px;
+    cursor: pointer;
     
+}
+
+.radioButtons:hover{
+    border: 1.5px solid #d8db2f43;
+
 }
 
 .radioButtons > input[type="radio"]{
@@ -158,6 +163,7 @@ html,body{
     display: flex;
     gap: 16px;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -203,7 +209,10 @@ input[type="radio"]:checked + .customRadio{
 
 input[type="text"]{
     height: 48px;
+    cursor: pointer;
 }
+
+
 
 .customizedInputSymbols{
     background-color: #edf4fd;
@@ -215,16 +224,76 @@ input[type="text"]{
     border-right: 0px; 
 }
 
+.limeBg{
+    background-color: #d8db2f;
+    color: #0d222c;
+}
+
+
+.requiredText{
+    color:#d73328;
+    margin-top: 12px;
+    display: none;
+
+}
+
 .borderLeft0{
     border: 1.5px solid #6b94a8;
     border-radius: 0px 5px 5px 0px;
     border-left: 0px;
 }
 
+.borderLimeLeft0{
+    border: 1.5px solid #D8DB2F;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0px;
+}
+
+
+.borderLeft0:focus{
+    border: 1.5px solid #D8DB2F;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0px;
+    outline: none;
+}
+
+
+
 .borderRight0{
     border: 1.5px solid #6b94a8;
     border-radius: 5px 0px 0px 5px;
     border-right: 0px;
+}
+
+.borderRedRight0{
+    border: 1.5px solid #d73328;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0px;
+}
+
+.borderRedLeft0{
+    border: 1.5px solid #d73328;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0px;
+}
+
+.redBg{
+    background-color: #d73328;
+    color: white;
+}
+
+
+.borderLimeRight0{
+    border: 1.5px solid #d8db2f;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0px;
+}
+
+.borderRight0:focus{
+    border: 1.5px solid #D8DB2F;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0px;
+    outline: none;
 }
 
 .borderSlate700{
@@ -239,13 +308,17 @@ input[type="text"]{
 }
 
 .repaymentButton{
-    display: flex;
+    display: inline-flex;
     padding: 16px 40px;
-    background-color:#D8DB2F;
+    background-color:#d8db2f;
     border-radius: 40px;
     gap: 12px;
     align-items: center;
-    width: 60%;
+    cursor: pointer;
+}
+
+.repaymentButton:hover{
+    background-color:rgba(216, 219, 47,0.7);;
 }
 
 /* section 2 start */
@@ -257,18 +330,54 @@ input[type="text"]{
     border-radius: 0px 20px 20px 40px;
     color: white;
     display: grid;
-    place-items: center;
+    place-items:center;
 }
 
 .emptyContainer{
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    display: flex;
+
 }
 
 .emptyMessageText{
     text-align: center;
     color: #9abed5;
     line-height: 150%;
+}
+
+.borderLime{
+    border: 2px solid #979a0e;
+}
+
+.results{
+    display: none;
+    flex-direction: column;
+    align-items: left;
+    gap: 40px;
+}
+
+.resultText{
+    line-height: 150%;
+    color: #9abed5;
+}
+
+.resultsBg{
+    background-color: #0d222c;
+    border-top:5px solid #d8db2f;
+    border-radius: 10px 10px 0px 0px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+}
+
+.textLime{
+    color:#D8DB2F;
+}
+
+.hiddenBg{
+    visibility: hidden;
 }
