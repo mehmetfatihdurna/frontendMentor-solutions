@@ -103,8 +103,8 @@ export default function MortgageRepaymentCalculator() {
                 totalRepayment = (monthlyRepayment * 12 * term) + amount;
             }
 
-            monthlyElemet.innerHTML = monthlyRepayment.toLocaleString('en-us');
-            totalElement.innerHTML = totalRepayment.toLocaleString('en-us');
+            monthlyElemet.innerHTML ="€"+monthlyRepayment.toLocaleString('en-us');
+            totalElement.innerHTML ="€"+totalRepayment.toLocaleString('en-us');
 
 
             emptyPage.style.display = "none";
