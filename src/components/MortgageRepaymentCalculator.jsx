@@ -4,6 +4,34 @@ import styles from '../assets/styles/MortgageRepaymentCalculator.module.css';
 
 export default function MortgageRepaymentCalculator() {
 
+    function inputControl(e){
+        e.target.value = e.target.value.replace(/[^0-9,.]/,'');
+    }
+    
+    function calculateRepaymentMortgage(principal, annualInterestRate, years) {
+        // Yıllık faiz oranını aylık faiz oranına çevir
+        let monthlyInterestRate = annualInterestRate / 12 / 100;
+        
+        // Toplam ödeme dönemi sayısı (ay cinsinden)
+        let totalPayments = years * 12;
+        
+        // Mortgage ödemesi formülü
+        let monthlyPayment = principal * monthlyInterestRate * Math.pow((1 + monthlyInterestRate), totalPayments) /
+                             (Math.pow((1 + monthlyInterestRate), totalPayments) - 1);
+        
+        return monthlyPayment;
+    }
+
+    function calculateInterestOnlyMortgage(principal, annualInterestRate) {
+        // Yıllık faiz oranını aylık faiz oranına çevir
+        let monthlyInterestRate = annualInterestRate / 12 / 100;
+        
+        // Aylık faiz ödemesi
+        let monthlyInterestPayment = principal * monthlyInterestRate;
+        console.log(monthlyInterestPayment);
+        return monthlyInterestPayment;
+    }
+
     function calculateResults(){
         const results = document.getElementById('results');
         const emptyPage = document.getElementById('emptyPage')
@@ -27,6 +55,10 @@ export default function MortgageRepaymentCalculator() {
         const euroSign = document.getElementById('euroSign');
         const percentSign = document.getElementById('percentSign');
         const yearText = document.getElementById('yearText');
+
+        //repayments
+        const monthlyElemet = document.getElementById('monthlyRepayment');
+        const totalElement = document.getElementById('totalRepayment');
 
         if(!repaymentRadio && !interestRadio){
             requiredRadioButtons.style.display = 'flex'
@@ -55,6 +87,26 @@ export default function MortgageRepaymentCalculator() {
         }
 
         if(!(required > 0)){
+
+            //Mortage Repayment Calculation
+            const amount = Number(mortgageAmountInput.value);
+            const term = Number(mortgageTermInput.value);
+            const interestRate = Number(interestRateInput.value);
+            var monthlyRepayment;
+            var totalRepayment;
+
+            if(repaymentRadio == true){
+                monthlyRepayment = calculateRepaymentMortgage(amount, interestRate, term);
+                totalRepayment = monthlyRepayment * 12 * term
+            }else if(interestRadio == true){
+                monthlyRepayment = calculateInterestOnlyMortgage(amount, interestRate);
+                totalRepayment = (monthlyRepayment * 12 * term) + amount;
+            }
+
+            monthlyElemet.innerHTML = monthlyRepayment.toLocaleString('en-us');
+            totalElement.innerHTML = totalRepayment.toLocaleString('en-us');
+
+
             emptyPage.style.display = "none";
             results.style.display = "flex";
         }
@@ -154,7 +206,13 @@ export default function MortgageRepaymentCalculator() {
             default:
                 break;
         }
+
+        
+
     }
+
+    
+
 
   return (
     <div className={styles.container}>
@@ -171,7 +229,7 @@ export default function MortgageRepaymentCalculator() {
                         <label htmlFor='mortgageAmount' className={styles.textPreset4}>Mortgage Amount</label>
                         <div className={styles.mortgageAmount}>
                             <div id='euroSign' className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderRight0}`}>€</div>
-                            <input onFocus={inputFocus} onBlur={inputBlur} className={`${styles.borderLeft0}`} id='mortgageAmount' type="text"/>
+                            <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} className={`${styles.borderLeft0}`} id='mortgageAmount' type="text"/>
                         </div>
                         <div id='requiredMortgageAmount' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>
                     </div>
@@ -180,7 +238,7 @@ export default function MortgageRepaymentCalculator() {
                         <div>
                             <label className={styles.textPreset4} htmlFor='mortgageTerm'>Mortgage Term</label>
                             <div className={styles.mortageTerm}>
-                                <input onFocus={inputFocus} onBlur={inputBlur} id='mortgageTerm' className={`${styles.borderRight0}`} type="text" />
+                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='mortgageTerm' className={`${styles.borderRight0}`} type="text" />
                                 <div id='yearText'  className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderLeft0}`}>years</div>
                             </div>
                             <div id='requiredMortgageTerm' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>
@@ -189,7 +247,7 @@ export default function MortgageRepaymentCalculator() {
                         <div>
                             <label className={styles.textPreset4} htmlFor='interestRate'>Interest Rate</label>
                             <div className={styles.interestRate}>
-                                <input onFocus={inputFocus} onBlur={inputBlur} id='interestRate' className={`${styles.borderRight0}`} type="text" />
+                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='interestRate' className={`${styles.borderRight0}`} type="text" />
                                 <div id='percentSign' className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderLeft0}`}>%</div>
                             </div>
                             <div id='requiredInterestRate' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>
@@ -251,7 +309,7 @@ export default function MortgageRepaymentCalculator() {
                     <div className={styles.resultsBg}>
                         <div>
                         <p className={`${styles.textPreset4} ${styles.resultText}`}>Your Monthly Repayments</p>
-                        <p className={`${styles.textPreset1} ${styles.textLime}`}>$1,797.74</p>
+                        <p id='monthlyRepayment' className={`${styles.textPreset1} ${styles.textLime}`}>$1,797.74</p>
                         </div>
                         <div>
                         <hr />
@@ -259,7 +317,7 @@ export default function MortgageRepaymentCalculator() {
                         
                         <div>
                         <p className={`${styles.textPreset4} ${styles.resultText}`}>{`Total You'll repay over the term`}</p>
-                        <p className={`${styles.textPreset2}`}>£539,322.94</p>
+                        <p id='totalRepayment' className={`${styles.textPreset2}`}>£539,322.94</p>
                         </div>
                     </div>
                 </div>
