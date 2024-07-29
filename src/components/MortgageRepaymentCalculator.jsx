@@ -231,7 +231,7 @@ export default function MortgageRepaymentCalculator() {
                         <label htmlFor='mortgageAmount' className={styles.textPreset4}>Mortgage Amount</label>
                         <div className={styles.mortgageAmount}>
                             <div id='euroSign' className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderRight0}`}>€</div>
-                            <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} className={`${styles.borderLeft0}`} id='mortgageAmount' type="text"/>
+                            <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} className={`${styles.borderLeft0} ${styles.typeText}`} id='mortgageAmount' type="text"/>
                         </div>
                         <div id='requiredMortgageAmount' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>
                     </div>
@@ -240,7 +240,7 @@ export default function MortgageRepaymentCalculator() {
                         <div>
                             <label className={styles.textPreset4} htmlFor='mortgageTerm'>Mortgage Term</label>
                             <div className={styles.mortageTerm}>
-                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='mortgageTerm' className={`${styles.borderRight0}`} type="text" />
+                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='mortgageTerm' className={`${styles.borderRight0} ${styles.typeText}`} type="text" />
                                 <div id='yearText'  className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderLeft0}`}>years</div>
                             </div>
                             <div id='requiredMortgageTerm' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>
@@ -249,7 +249,7 @@ export default function MortgageRepaymentCalculator() {
                         <div>
                             <label className={styles.textPreset4} htmlFor='interestRate'>Interest Rate</label>
                             <div className={styles.interestRate}>
-                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='interestRate' className={`${styles.borderRight0}`} type="text" />
+                                <input onFocus={inputFocus} onBlur={inputBlur} onInput={inputControl} id='interestRate' className={`${styles.borderRight0} ${styles.typeText}`} type="text" />
                                 <div id='percentSign' className={`${styles.textPreset3} ${styles.customizedInputSymbols} ${styles.borderLeft0}`}>%</div>
                             </div>
                             <div id='requiredInterestRate' className={`${styles.textPreset5} ${styles.requiredText}`}>This field is required</div>

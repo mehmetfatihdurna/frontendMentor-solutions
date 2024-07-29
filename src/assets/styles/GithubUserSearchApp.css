@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 730px;
+    width: 100vw;
+    gap: 24px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchArea{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FEFEFE;
+}
+
+.searchArea > input {
+    width: 70%;
+    border:none;
+    cursor: pointer;
+    caret-color: #0079FF;
+    caret-shape: 2px;
+    font-size: 24px;
+}
+
+.searchArea > input:focus {
+    outline: none;
+}
+
+
+.informationArea{
+    display: flex;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 32px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.mainInformation{
+    display: flex;
+    justify-content: space-between;
+}
+
+.extraInformation{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.infoGroup{
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoItems{
+    display: flex;
+}

@@ -48,8 +48,12 @@ table {
 }
 
 html,body{
+    background-color: var(--background-color, white);
+}
+
+body{
     display: grid;
     place-items: center;
-    height: 100%;
-    background-color: var(--background-color, white);
+    height: 100vh;
+    width: 100vw;
 }

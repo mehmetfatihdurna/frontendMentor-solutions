@@ -46,18 +46,6 @@
 
 
 
-input[type='text']{
-    width: 100%;
-    font-size: 20px;
-    padding: 0px 10px;
-}
-
-html,body{
-    display: grid;
-    place-items: center;
-    height: 100%;
-}
-
 .container{
     display: flex;
     max-width: 976px;
@@ -251,10 +239,12 @@ input[type="radio"]:checked + .customRadio{
 } 
 
 
-
-input[type="text"]{
+.typeText{
     height: 48px;
     cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    padding: 0px 10px;
 }
 
 
