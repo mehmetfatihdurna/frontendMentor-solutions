@@ -8,6 +8,13 @@
     src: url('../fonts/static/PlusJakartaSans-Medium.ttf');
 }
 
+.body{
+    background-color: #e4f4fd;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
 .textPreset1{
     font-family: 'PlusJakartaSansBold';
     font-size: 56px;
@@ -57,6 +64,9 @@
     .container {
       flex-direction: column;
     }
+    .body{
+        height: 100%;
+    }
   }
 
 @media (max-width: 821px) and (min-width: 475px){
@@ -72,6 +82,9 @@
 @media (min-width:821px){
     .shownRepayment{
         border-radius: 0px 20px 20px 90px;
+    }
+    .body{
+        height: 100vh;
     }
 }
 

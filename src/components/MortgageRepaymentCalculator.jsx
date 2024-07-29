@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-case-declarations */
 import styles from '../assets/styles/MortgageRepaymentCalculator.module.css';
-import ChangeColor from './ChangeColor';
 
 export default function MortgageRepaymentCalculator() {
 
@@ -216,7 +215,7 @@ export default function MortgageRepaymentCalculator() {
 
 
   return (
-    <ChangeColor color={'#e4f4fd'}>
+    <div className={styles.body}>
          <div className={styles.container}>
             <div className={styles.formContainer}>
                 {/* Title */}
@@ -327,7 +326,7 @@ export default function MortgageRepaymentCalculator() {
 
 
     </div>
-    </ChangeColor>
+    </div>
    
   )
 }

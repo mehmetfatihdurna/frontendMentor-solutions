@@ -1,3 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+/*  Typografy */
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.h1{
+    font-size: 26px;
+    line-height: 38px;
+}
+
+.h2{
+    font-size: 22px;
+    line-height: 33px;
+}
+
+.h3{
+    font-size: 16px;
+    line-height: 24px
+}
+
+.h4{
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.body{
+    font-size: 15px;
+    line-height: 25px;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--alice-blue);
+}
+
+
+/*  Typografy */
+
+/*Colors*/
+
+.light-theme{
+    --blue:#0079FF;
+    --dark-grey:#697C9A;
+    --steel-blue:#4B6A9B;
+    --gunmetal-blue:#2B3442;
+    --alice-blue: #F6F8FF;
+    --white:#FEFEFE;
+
+}
+
+.dark-theme{
+    --dark-mode-white:#FFFFFF;
+    --midnight-blue:#141D2F;
+    --space-cadet: #1E2A47;
+}
+
+/*Colors*/
+
+
 .container{
     display: flex;
     flex-direction: column;
@@ -14,15 +84,14 @@
 .searchArea{
     display: flex;
     justify-content: space-between;
-    background-color: #FEFEFE;
+    background-color: var(--white);
 }
 
 .searchArea > input {
     width: 70%;
     border:none;
     cursor: pointer;
-    caret-color: #0079FF;
-    caret-shape: 2px;
+    caret-color: var(--blue);
     font-size: 24px;
 }
 

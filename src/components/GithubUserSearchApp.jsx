@@ -1,14 +1,13 @@
 import '../assets/styles/GithubUserSearchApp.css';
-import ChangeColor from './ChangeColor';
 
 export default function GithubUserSearchApp() {
 
     return (
-        <ChangeColor color={'#F6F8FF'}>
+        <div className='body light-theme'>
             <div className='container'>
                 {/**Dev Finder and Theme Toogle */}
                 <div className='navbar'>
-                    <h1>devfinder</h1>
+                    <h1 className='space-mono-regular h1'>devfinder</h1>
                     <a href="">
                         Dark
                         <img src="" alt="toggle "/>
@@ -83,6 +82,6 @@ export default function GithubUserSearchApp() {
 
                 </div>
             </div>
-        </ChangeColor>
+        </div>
     )
 }
