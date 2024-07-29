@@ -5,7 +5,7 @@ import styles from '../assets/styles/MortgageRepaymentCalculator.module.css';
 export default function MortgageRepaymentCalculator() {
 
     function inputControl(e){
-        e.target.value = e.target.value.replace(/[^0-9,.]/,'');
+        e.target.value = e.target.value.replace(/[^0-9]/,'');
     }
     
     function calculateRepaymentMortgage(principal, annualInterestRate, years) {
