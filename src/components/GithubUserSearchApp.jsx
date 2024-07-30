@@ -1,30 +1,35 @@
 import '../assets/styles/GithubUserSearchApp.css';
-import { FaMoon, FaLink } from "react-icons/fa";
-import { LuSearch } from "react-icons/lu";
-
-import { FaLocationDot } from "react-icons/fa6";
-import { BsTwitter } from "react-icons/bs";
-import { HiMiniBuildingOffice2 } from "react-icons/hi2";
+import { useState } from 'react';
 
 export default function GithubUserSearchApp() {
 
+    const [isSun, setIsSun] = useState(false);
+
+    function theme(){
+        const body = document.getElementById('body')
+        body.classList.toggle('dark-theme');
+        setIsSun(!isSun);
+    }
+
     return (
-        <div className='body light-theme space-mono-regular'>
+        <div id='body' className='body light-theme space-mono-regular'>
             <div className='container'>
                 {/**Dev Finder and Theme Toogle */}
                 <div className='navbar'>
-                    <h1 className='space-mono-regular h1'>devfinder</h1>
-                    <div className='flex color-dark-grey'>
-                        <h4 className='h4 space-mono-bold'>DARK</h4>
-                        <FaMoon className='font-size-20'/>
+                    <h1 className='space-mono-regular h1 color-gunmetal-blue'>devfinder</h1>
+                    <div onClick={theme} className='flex color-dark-grey theme-button'>
+                        <h4 id='themeToggle' className='h4 space-mono-bold'>{isSun ? 'LIGHT' : 'DARK'}</h4>
+                        {isSun ? <img src='/images/github-user-search-app/icon-sun.svg'/> : <img src='/images/github-user-search-app/icon-moon.svg'/>}
                     </div>
                 </div>
 
                 {/**Search Area */}
                 <div className='searchArea box-shadow'>
-                    <LuSearch className='color-blue font-size-25 search-icon'/>
-                    <input id='searchInput' className='space-mono-regular' placeholder='Search Github username...' type="text"/>
-                    <span className='space-mono-bold'>No results</span>
+                    <img src='/images/github-user-search-app/icon-search.svg' className='color-blue search-icon'/>
+                    <input id='searchInput' className='space-mono-regular color-gunmetal-blue' placeholder='Search Github username...' type="text"/>
+                    <div className='flex'>
+                        <p className='space-mono-bold color-red'>No results</p>
+                    </div>
                     <a className='button'>
                        <h4 className='space-mono-bold h3 primary-button'>Search</h4> 
                     </a>
@@ -67,24 +72,24 @@ export default function GithubUserSearchApp() {
                         <div className='extraInformation'>
                             <div className='infoGroup'>
                                 <div className='infoItems color-steel-blue'>
-                                    <FaLocationDot className='font-size-20'/>
+                                    <img src="/images/github-user-search-app/icon-location.svg"/>
                                     <p>San Francisco</p>
                                 </div>
                                 <div className='infoItems color-steel-blue'>
-                                    <FaLink className='font-size-20'/>
-                                    <a href="https://github.com" target='_blank'>https://github.com</a>
+                                    <img src="/images/github-user-search-app/icon-website.svg"/>
+                                    <a href="https://github.com" className='link' target='_blank'>https://github.com</a>
                                 </div>
                                 
                             </div>
 
                             <div className='infoGroup'>
                                 <div className='infoItems color-steel-blue'>
-                                    <BsTwitter className='font-size-20'/>
+                                    <img src="/images/github-user-search-app/icon-twitter.svg"/>
                                     <p>Not Available</p>
                                 </div>
                                 
                                 <div className='infoItems color-steel-blue'>
-                                    <HiMiniBuildingOffice2 className='font-size-20'/>
+                                    <img src="/images/github-user-search-app/icon-company.svg"/>
                                     <p>@github</p>
                                 </div>
                             </div>
