@@ -61,6 +61,7 @@
     --border-radius: 15px;
     --box-shadow:0px 16px 30px -10px var(--box-shadow-color);
     --red:#F74646;
+    --filter-color: invert(39%) sepia(92%) saturate(252%) hue-rotate(176deg) brightness(86%) contrast(94%);
     transition: 1s;
 
 }
@@ -74,6 +75,7 @@
     --steel-blue:#FFFFFF;
     --alice-blue:#141D2F;
     --box-shadow:none;
+    --filter-color:invert(99%) sepia(5%) saturate(193%) hue-rotate(319deg) brightness(116%) contrast(100%);
     transition: 1s;
 }
 
@@ -243,4 +245,13 @@
 .link{
     color:var(--steel-blue);
     text-decoration: none;
+    width: 200px; /* Harflerin sığacağı genişlik */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.filter{
+    filter: var(--filter-color);
 }
