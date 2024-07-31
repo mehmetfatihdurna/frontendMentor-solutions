@@ -49,8 +49,13 @@
 
 /*Colors*/
 
-.light-theme{
+.main-theme{
     --blue:#0079FF;
+    --border-radius: 15px;
+    --red:#F74646;
+}
+
+.light-theme{
     --dark-grey:#697C9A;
     --steel-blue:#4B6A9B;
     --gunmetal-blue:#2B3442;
@@ -58,9 +63,8 @@
     --background-color:#F6F8FF;
     --white:#FEFEFE;
     --box-shadow-color: rgba(70, 96, 187, 0.1986);
-    --border-radius: 15px;
     --box-shadow:0px 16px 30px -10px var(--box-shadow-color);
-    --red:#F74646;
+    
     --filter-color: invert(39%) sepia(92%) saturate(252%) hue-rotate(176deg) brightness(86%) contrast(94%);
     transition: 1s;
 

@@ -5,12 +5,11 @@ import { getUser } from '../api/github-user-api';
 
 export default function GithubUserSearchApp() {
 
-    const [isSun, setIsSun] = useState(()=>{
-        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const saved_theme = localStorage.getItem('saved_theme');
-        return saved_theme ? saved_theme : userPrefersDark;
-
+    const [isSun, setIsSun] = useState(() => {
+        const saved_theme = localStorage.getItem('theme');
+        return saved_theme !== null ? saved_theme === 'true' : false; // false veya istediğiniz varsayılan değer
     });
+    
 
 
     const [data,setData] = useState(() => {
@@ -30,6 +29,7 @@ export default function GithubUserSearchApp() {
                 setLoading(true);
                 const response = await getUser(userName);
                 if(response.status === 200){
+                    response.data.created_at = dateFormater(response.data.created_at)
                     localStorage.setItem('userData', JSON.stringify(response.data));
                     setData(response.data);
                     setResultText('');
@@ -55,27 +55,30 @@ export default function GithubUserSearchApp() {
    
 
     if(loading){
-        return <p>Loading...</p>
+        return <div className={`body ${isSun ? 'light-theme' : 'dark-theme'}`}>
+            <h1 className='color-gunmetal-blue h1 space-mono-bold'>Loading...</h1>
+        </div>
     }
 
     if(error){
         return <p>{error}</p>
     }
 
-
     function theme(){
-        const body = document.getElementById('body')
-        body.classList.toggle('dark-theme');
         setIsSun(!isSun);
+        if(!(isSun==null)){
+            localStorage.setItem('theme', !isSun);
+        }
+        
     }
 
-    function dateFormater(){
+    function dateFormater(date){
         const monthNames = [
             "Jan", "Feb", "Mar", "Apr", "May", "Jun",
             "July", "Aug", "Sep", "Oct", "Nov", "Dec"
         ];
 
-        const dateString = data.created_at;
+        const dateString = date;
         const dateObj = new Date(dateString);
 
         const year = dateObj.getUTCFullYear();
@@ -83,8 +86,6 @@ export default function GithubUserSearchApp() {
         const day = dateObj.getUTCDate();
 
         const formattedDate = `${day.toString().padStart(2, '0')} ${month} ${year}`;
-
-        console.log(formattedDate); // "09 July 2020"
 
         return formattedDate;
     }
@@ -96,28 +97,28 @@ export default function GithubUserSearchApp() {
 
 
     return (
-        <div id='body' className='body light-theme space-mono-regular'>
-            <div className='container'>
-                {/**Dev Finder and Theme Toogle */}
-                <div className='navbar'>
-                    <h1 className='space-mono-regular h1 color-gunmetal-blue'>devfinder</h1>
-                    <div onClick={theme} className='flex color-dark-grey theme-button'>
-                        <h4 id='themeToggle' className='h4 space-mono-bold'>{isSun ? 'LIGHT' : 'DARK'}</h4>
-                        {isSun ? <img src='/images/github-user-search-app/icon-sun.svg'/> : <img src='/images/github-user-search-app/icon-moon.svg'/>}
+        <div id='body' className={`body main-theme ${isSun ? 'light-theme' : 'dark-theme'} space-mono-regular`}>
+                <div className='container'>
+                    {/**Dev Finder and Theme Toogle */}
+                    <div className='navbar'>
+                        <h1 className='space-mono-regular h1 color-gunmetal-blue'>devfinder</h1>
+                        <div onClick={theme} className='flex color-dark-grey theme-button'>
+                            <h4 id='themeToggle' className='h4 space-mono-bold'>{!isSun ? 'LIGHT' : 'DARK'}</h4>
+                            {!isSun ? <img src='/images/github-user-search-app/icon-sun.svg'/> : <img src='/images/github-user-search-app/icon-moon.svg'/>}
+                        </div>
                     </div>
-                </div>
 
-                {/**Search Area */}
-                <div className='searchArea box-shadow'>
-                    <img src='/images/github-user-search-app/icon-search.svg' className='color-blue search-icon'/>
-                    <input id='searchInput' className='space-mono-regular color-gunmetal-blue' placeholder='Search Github username...' autoComplete='off' type="text"/>
-                    <div className='flex'>
-                        <p className='space-mono-bold color-red'>{resultText}</p>
+                    {/**Search Area */}
+                    <div className='searchArea box-shadow'>
+                        <img src='/images/github-user-search-app/icon-search.svg' className='color-blue search-icon'/>
+                        <input id='searchInput' className='space-mono-regular color-gunmetal-blue' placeholder='Search Github username...' autoComplete='off' type="text"/>
+                        <div className='flex'>
+                            <p className='space-mono-bold color-red'>{resultText}</p>
+                        </div>
+                        <a onClick={searchButton} className='button'>
+                        <h4 className='space-mono-bold h3 primary-button'>Search</h4> 
+                        </a>
                     </div>
-                    <a onClick={searchButton} className='button'>
-                       <h4 className='space-mono-bold h3 primary-button'>Search</h4> 
-                    </a>
-                </div>
 
                 {/**Information Area */}
                 <div className='informationArea box-shadow'>
@@ -130,7 +131,7 @@ export default function GithubUserSearchApp() {
                                 <h4 className='h4 space-mono-regular color-blue'>{`@${data.login}`}</h4>
                             </div>
                             <div>
-                                <p className='color-dark-grey space-mono-regular'>{`Joined at ${dateFormater()}`}</p>
+                                <p className='color-dark-grey space-mono-regular'>{`Joined at ${data.created_at}`}</p>
                             </div>
                         </div>
 
