@@ -40,8 +40,90 @@
     display: grid;
     place-items: center;
     height: 100vh;
-    width: 100vw;
+    min-height: 740px;
+    width: 100%;
     background-color: var(--background-color);
+}
+
+@media(max-width:415px){
+    .body{
+        height: 100vh;
+    }
+}
+
+@media(width:434){
+    .body{
+        height: 100vh;
+    }
+}
+
+@media (min-width:648px){
+    .profile-photo2{
+        display:none;
+    }
+}
+
+@media (max-width:648px){
+    .body{
+        height: 100vh;
+    }
+    .profile-photo{
+        display: none;
+    }
+
+    .profile-photo2{
+        display: block;
+    }
+
+    .header{
+        flex-direction: column;
+    }
+    .mainInformation{
+        gap: 0px;
+        justify-content:space-around ;
+    }
+}
+
+
+
+@media(max-width:477px){
+    .extraInformation{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .informationArea{
+        padding: 20px;
+    }
+    .mainInformation{
+        padding: 10px;
+    }
+    .primary-button{
+        padding: 10px;
+    }
+    .button{
+        margin: 2px 2px 2px 2px;
+    }
+}
+
+@media(min-width:477px){
+    .informationArea{
+        padding: 43px 48px 50px 48px;;
+    }
+    .mainInformation{
+        padding: 15px 0px 17px 32px;
+    }
+    .primary-button{
+        padding: 13px 23px 13px 23px;
+    }
+    .button{
+        margin: 10px 10px 10px 0px;
+    }
+}
+
+@media (min-width:648px){
+    .mainInformation{
+        gap: 90px;
+    }
 }
 
 
@@ -90,7 +172,7 @@
     display: flex;
     flex-direction: column;
     max-width: 730px;
-    width: 100vw;
+    width: 95%;
     gap: 24px;
 }
 
@@ -111,6 +193,7 @@
     border:none;
     cursor: pointer;
     caret-color: var(--blue);
+    text-overflow: ellipsis;
     font-size: 18px;
     background-color: var(--white);
 }
@@ -133,7 +216,7 @@
     gap: 30px;
     background-color: var(--white);
     border-radius: var(--border-radius);
-    padding: 43px 48px 50px 48px;
+    
 }
 
 .info{
@@ -152,9 +235,7 @@
 
 .mainInformation{
     display: flex;
-    gap: 90px;
     background-color: var(--alice-blue);
-    padding: 15px 0px 17px 32px;
     border-radius: var(--border-radius);
 }
 
@@ -221,18 +302,24 @@
     color: #FEFEFE;
     display: flex;
     align-items: center;
-    margin: 10px 10px 10px 0px;
 }
 
 .primary-button{
     background-color: var(--blue);
     cursor: pointer;
-    padding: 13px 23px 13px 23px;
     border-radius: var(--border-radius);
+}
+
+.primary-button:hover{
+    background-color: #60ABFF;
 }
 
 
 .profile-photo{
+    border-radius: 100%;
+}
+
+.profile-photo2{
     border-radius: 100%;
 }
 

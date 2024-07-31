@@ -6,8 +6,8 @@ import { getUser } from '../api/github-user-api';
 export default function GithubUserSearchApp() {
 
     const [isSun, setIsSun] = useState(() => {
-        const saved_theme = localStorage.getItem('theme');
-        return saved_theme !== null ? saved_theme === 'true' : false; // false veya istediğiniz varsayılan değer
+        const saved_theme = sessionStorage.getItem('theme');
+        return saved_theme !== null ? saved_theme === 'true' : window.matchMedia("(prefers-color-scheme: dark)").matches; // false veya istediğiniz varsayılan değer
     });
     
 
@@ -67,7 +67,7 @@ export default function GithubUserSearchApp() {
     function theme(){
         setIsSun(!isSun);
         if(!(isSun==null)){
-            localStorage.setItem('theme', !isSun);
+            sessionStorage.setItem('theme', !isSun);
         }
         
     }
@@ -111,7 +111,7 @@ export default function GithubUserSearchApp() {
                     {/**Search Area */}
                     <div className='searchArea box-shadow'>
                         <img src='/images/github-user-search-app/icon-search.svg' className='color-blue search-icon'/>
-                        <input id='searchInput' className='space-mono-regular color-gunmetal-blue' placeholder='Search Github username...' autoComplete='off' type="text"/>
+                        <input id='searchInput' className='space-mono-regular color-gunmetal-blue' placeholder='search by username...' autoComplete='off' type="text"/>
                         <div className='flex'>
                             <p className='space-mono-bold color-red'>{resultText}</p>
                         </div>
@@ -125,15 +125,19 @@ export default function GithubUserSearchApp() {
                     <img src={data.avatar_url} className='profile-photo' width={117} height={117} alt="profile-photo"/>
 
                     <div className='info'>
-                        <div className='header'>
-                            <div>
-                                <h1 className='h1 space-mono-bold color-gunmetal-blue'>{data.name}</h1>
-                                <h4 className='h4 space-mono-regular color-blue'>{`@${data.login}`}</h4>
-                            </div>
-                            <div>
-                                <p className='color-dark-grey space-mono-regular'>{`Joined at ${data.created_at}`}</p>
-                            </div>
+                        <div className='flex'>
+                            <img src={data.avatar_url} className='profile-photo2' width={80} height={80} alt="profile-photo"/>
+                            <div className='header'>
+                                <div>
+                                    <h1 className='h1 space-mono-bold color-gunmetal-blue'>{data.name}</h1>
+                                    <h4 className='h4 space-mono-regular color-blue'>{`@${data.login}`}</h4>
+                                </div>
+                                <div>
+                                    <p className='color-dark-grey space-mono-regular'>{`Joined at ${data.created_at}`}</p>
+                                </div>
                         </div>
+                    </div>
+                        
 
                         <div>
                             <p className='color-steel-blue'>{data.bio ? data.bio : 'This Profile has no bio'}</p>
