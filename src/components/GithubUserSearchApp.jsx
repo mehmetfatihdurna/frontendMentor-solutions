@@ -220,7 +220,7 @@ export default function GithubUserSearchApp() {
                                 </div>
                                 <div className='infoItems color-steel-blue'>
                                     <img className='filter' src="/images/github-user-search-app/icon-website.svg"/>
-                                    <a href={data.blog} className='link' target='_blank'>{data.blog}</a>
+                                    <a href={data.blog} className='link' target='_blank'>{data.blog ? data.blog : 'Not available'}</a>
                                 </div>
 
                             </div>
