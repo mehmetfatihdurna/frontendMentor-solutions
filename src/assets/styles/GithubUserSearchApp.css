@@ -61,9 +61,14 @@
     .profile-photo2{
         display:none;
     }
+    
 }
 
 @media (max-width:648px){
+    .resultText{
+        display:none;
+    }
+
     .body{
         height: 100vh;
     }
@@ -85,12 +90,15 @@
 }
 
 
-
-@media(max-width:477px){
+@media(max-width:500px){
     .extraInformation{
         flex-direction: column;
         row-gap: 20px;
     }
+}
+
+
+@media(max-width:400px){
     .informationArea{
         padding: 20px;
     }
@@ -103,9 +111,13 @@
     .button{
         margin: 2px 2px 2px 2px;
     }
+
+    .searchArea > input{
+        font-size: 15px;
+    }
 }
 
-@media(min-width:477px){
+@media(min-width:400px){
     .informationArea{
         padding: 43px 48px 50px 48px;;
     }
@@ -117,6 +129,9 @@
     }
     .button{
         margin: 10px 10px 10px 0px;
+    }
+    .searchArea > input{
+        font-size: 18px;;
     }
 }
 
@@ -194,7 +209,6 @@
     cursor: pointer;
     caret-color: var(--blue);
     text-overflow: ellipsis;
-    font-size: 18px;
     background-color: var(--white);
 }
 
