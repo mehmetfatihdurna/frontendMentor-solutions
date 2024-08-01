@@ -95,10 +95,18 @@
         flex-direction: column;
         row-gap: 20px;
     }
+    .link{
+        width:270px;
+    }
 }
 
+@media(min-width:500px){
+    .link{
+        width: 170px;
+    }
+}
 
-@media(max-width:400px){
+@media(max-width:410px){
     .informationArea{
         padding: 20px;
     }
@@ -117,7 +125,7 @@
     }
 }
 
-@media(min-width:400px){
+@media(min-width:410px){
     .informationArea{
         padding: 43px 48px 50px 48px;;
     }
@@ -256,10 +264,12 @@
 .extraInformation{
     display: flex;
     justify-content: space-between;
+
 }
 
 .infoGroup{
     display: flex;
+    flex:50%;
     flex-direction: column;
     gap: 20px;
 }
@@ -350,7 +360,7 @@
 .link{
     color:var(--steel-blue);
     text-decoration: none;
-    width: 200px; /* Harflerin sığacağı genişlik */
+     /* Harflerin sığacağı genişlik */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

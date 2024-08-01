@@ -212,7 +212,7 @@ export default function GithubUserSearchApp() {
                             <div className='infoGroup'>
                                 <div className='infoItems color-steel-blue'>
                                     <img className='filter' src="/images/github-user-search-app/icon-location.svg"/>
-                                    <p>{
+                                    <p className='lin'>{
                                             data.location
                                                 ? data.location
                                                 : 'Not Available'
@@ -228,20 +228,20 @@ export default function GithubUserSearchApp() {
                             <div className='infoGroup'>
                                 <div className='infoItems color-steel-blue'>
                                     <img className='filter' src="/images/github-user-search-app/icon-twitter.svg"/>
-                                    <p>{
+                                    <a className='link'>{
                                             data.twitter_username
                                                 ? data.twitter_username
                                                 : 'Not Available'
-                                        }</p>
+                                        }</a>
                                 </div>
 
                                 <div className='infoItems color-steel-blue'>
                                     <img className='filter' src="/images/github-user-search-app/icon-company.svg"/>
-                                    <p>{
+                                    <a className='link'>{
                                             data.company
                                                 ? `${data.company}`
                                                 : 'Not Available'
-                                        }</p>
+                                        }</a>
                                 </div>
                             </div>
                         </div>
