@@ -9,9 +9,7 @@ export default function GithubUserSearchApp() {
         const saved_theme = sessionStorage.getItem('theme');
         return saved_theme !== null
             ? saved_theme === 'true'
-            : window
-                .matchMedia("(prefers-color-scheme: dark)")
-                .matches; // false veya istediğiniz varsayılan değer
+            : false;
     });
 
     const [data, setData] = useState(() => {
