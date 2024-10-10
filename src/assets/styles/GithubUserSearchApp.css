@@ -45,6 +45,10 @@
     background-color: var(--background-color);
 }
 
+/*  Typografy */
+
+/* Responsive settings */
+
 @media(max-width:415px){
     .body{
         height: 100vh;
@@ -149,8 +153,9 @@
     }
 }
 
+/* Responsive settings */
 
-/*  Typografy */
+
 
 /*Colors*/
 
