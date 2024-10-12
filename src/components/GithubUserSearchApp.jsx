@@ -52,7 +52,11 @@ export default function GithubUserSearchApp() {
         if (data) {
             console.log(data);
         }
-    }, [data])
+    }, [data]);
+
+    useEffect(()=>{
+        document.title = "User Search App";
+    },[]);
 
     if (loading) {
         return <div

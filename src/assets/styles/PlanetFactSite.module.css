@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap');
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 16px 24px 16px 24px;
+    border-bottom: 2px solid rgba(97,97,97,0.5);
+    margin-bottom: 44px;
+}
+
+.body{
+    height: 100vh;
+    background-color: #070724;
+}
+
+.h1{
+    font-family: "Antonio", sans-serif;
+    font-size: 80px;
+    line-height: 103px;
+    font-weight: 500;
+}
+
+.h2{
+    color: #FFF;
+    font-family: Antonio;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.05px;
+    text-transform: uppercase;
+}
+
+.h3{
+    font-family: "League Spartan", sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 2.6px;
+}
+
+.h4{
+    font-family: "League Spartan", sans-serif;
+    font-size: 11px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.planetButtons{
+    color: white;
+    padding: 0px 24px 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+    text-align: center;
+    font-family: "League Spartan", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px; /* 166.667% */
+    letter-spacing: 1.364px;
+    text-transform: uppercase;
+}
+
+.planetAndText{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.line{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0px 24px 0px 24px;
+}
+
+.buttonsGap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
