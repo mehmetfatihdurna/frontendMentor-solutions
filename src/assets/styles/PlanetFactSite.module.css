@@ -7,11 +7,17 @@
     padding: 16px 24px 16px 24px;
     border-bottom: 2px solid rgba(97,97,97,0.5);
     margin-bottom: 44px;
+    background-color: #070724;
 }
 
-.body{
+.bodyMenuOpen{
     height: 100vh;
     background-color: #070724;
+}
+
+.bodyMenuClose{
+    height: 100vh;
+    background: url('/images/planet-fact-site/bg.svg');
 }
 
 .h1{
@@ -75,8 +81,22 @@
     margin: 0px 24px 0px 24px;
 }
 
-.buttonsGap{
+.menuOpen{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    transform: translateX(0);
+    transition: 1000ms;
+}
+
+.menuClose{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translateX(-100%);
+    transition: 1000ms;
+}
+
+.threeLine{
+    cursor: pointer;
 }
